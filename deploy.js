@@ -5,7 +5,6 @@ path = require('path');
 node_ssh = require('node-ssh');
 ssh = new node_ssh();
 
-
 // the method that starts the deployment process
 function main() {
   console.log('Deployment started.');
@@ -66,7 +65,7 @@ function stopRemoteServices() {
 // updates the project source on the server
 function updateRemoteApp() {
   return ssh.execCommand(
-    'mkdir starter-node-angular && cp -r starter-node-angular-temp/* starter-node-angular-list/ && rm -rf starter-node-angular-temp', {
+    'mkdir starter-node-angular && cp -r starter-node-angular-temp/* starter-node-angular/ && rm -rf starter-node-angular-temp', {
       cwd: '/home/ubuntu'
   });
 }
@@ -74,7 +73,7 @@ function updateRemoteApp() {
 // restart mongodb and node services on the remote server
 function restartRemoteServices() {
   return ssh.execCommand(
-    'cd starter-node-angular-list && sudo service mongod start && pm2 start app.js', {
+    'cd starter-node-angular && sudo service mongod start && pm2 start app.js', {
       cwd: '/home/ubuntu'
   });
 }
