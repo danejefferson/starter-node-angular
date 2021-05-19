@@ -7,7 +7,10 @@
     "body-parser": "~1.4.2",
     "method-override": "~2.0.2"
   },
-    "scripts": {
-      "lint": "./node_modules/.bin/eslint app.js"
-    }
+  "scripts": {
+    "lint": "eslint.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0"
   }
+}
